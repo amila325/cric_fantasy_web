@@ -12,12 +12,12 @@ export default function Login() {
     const history = useHistory()
     logout()
 
-    async function handleSubmit(e) {
+    function handleSubmit(e) {
         e.preventDefault()
         try {
             setError("")
             setLoading(true)
-            await login(emailRef.current.value, passwordRef.current.value)
+            login(emailRef.current.value, passwordRef.current.value)
             history.push("/")
             
         } catch {
@@ -25,18 +25,6 @@ export default function Login() {
         }
 
         setLoading(false)
-        // try {
-        //   setError("")
-        //   setLoading(true)
-        //   await login(emailRef.current.value, passwordRef.current.value)
-        //   history.push("/")
-        // } catch {
-        //   setError("Failed to log in")
-        // }
-
-        // setLoading(false)
-        // {error && <Alert variant="danger">{error}</Alert>}
-        //<Link to="/forgot-password">Forgot Password?</Link>
     }
 
     return (

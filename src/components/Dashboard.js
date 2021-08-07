@@ -7,15 +7,11 @@ export default function Dashboard() {
     const [error, setError] = useState("")
     const history = useHistory()
     const { currentUser, logout} = useAuth()
-    // console.log(currentUser)
-    console.log(currentUser)
-    // debugger
-    // console.log(currentUser.email)
-    async function handleLogout() {
+    function handleLogout() {
         setError("")
 
         try {
-            await logout()
+            logout()
             history.push("/login")
           } catch {
             setError("Failed to log out")
